@@ -1,0 +1,28 @@
+# === WHAT? ===
+# Specify an NPDA by writing each transition as a single line, and listing all the accept states in the last line.
+
+# === HOW? ===
+# Use this notation for each transition: source_state : input_symbol_or_e_to_consume, stack_symbol_or_e_to_pop > stack_symbol_or_e_to_push : destination_state
+# For example: q0 : e, e > $ : q1
+# Use "e" for epsilon and nothing else.
+# Source state of the first transition must be the start state!
+# Last line must include all accept states separated by a comma.
+
+# === RESTRICTIONS ===
+# Symbols must be single characters: a, b, 0, 1, $, ...
+# Symbols cannot be any of these special characters:  ":"  ","  ">"
+# State names can be any alphanumeric string: a, q1, 1, Q10, ...
+
+# === NOTE ===
+# Space characters in transition will be discarded.
+# Empty lines and comment lines (i.e., lines which start with "#") will be discarded.
+
+# === BELOW IS THE NPDA ===
+# Transitions (one line for each transition):
+q0 : e, e > $ : q1
+q1 : 0, e > x : q1
+q1 : 1, x > e : q1
+q1 : e, $ > e : q2
+
+# Accept states as comma separated values:
+q2

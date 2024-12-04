@@ -1,0 +1,24 @@
+# === WHAT? ===
+# Specify a grammar by writing its rules in one or more lines.
+
+# === HOW? ===
+# Left-hand side of the first rule must be the start variable!
+# Use > as an arrow. For example: X > y
+# Use "e" for epsilon. For example: X > e
+# You can use "|" for indicating alternatives. For example: X > y | e
+
+# === RESTRICTIONS ===
+# Variables and terminals must consist of a single character.
+# Use capital English letters for variables: A, B, C, D, E, ..., Z
+# Use digits and lowercase English letters except 'e' for terminals: 0, 1, ..., 9, a, b, c, d, f, ..., z
+
+# === NOTE ===
+# Space characters in rules will be discarded.
+# Empty lines and comment lines (i.e., lines which start with "#") will be discarded.
+
+# === BELOW IS THE GRAMMAR ===
+S > 0S1 | SS | e
+
+# Alternative grammar for the same language: S > 0S1 | e | 01S
+# Alternative grammar for the same language: S > 0S1S | e
+# Alternative grammar for the same language: S > S0S1 | e
