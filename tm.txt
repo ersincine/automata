@@ -1,0 +1,45 @@
+# === WHAT? ===
+# Specify a Turing machine by writing each transition as a single line.
+
+# === HOW? ===
+# Use this notation for each transition: 
+# source_state : symbols_to_read > symbol_to_write, direction: destination_state
+# where symbols_to_read is one or more alternative symbols separated by a comma, and direction is either "l" (left) or "r" (right).
+# For example: q0 : a, b, c > d, l : q1
+# You can omit symbol_to_write if the existing symbol will not be replaced.
+# For example: q0 : a, b > r : q1
+# Source state of the first transition must be the start state!
+# The accept state must be named "accept".
+# Use "." for the blank symbol.
+# You must omit the transitions to the reject state.
+
+# === RESTRICTIONS ===
+# Symbols must be single characters: . (the blank symbol), a, b, 0, 1, $, ...
+# Symbols cannot be any of these special characters:  ":"  ","  ">" 
+# State names can be any alphanumeric string: accept (the accept state), q1, 1, Q10, ...
+
+# === NOTE ===
+# Space characters in transition will be discarded.
+# Empty lines and comment lines (i.e., lines which start with "#") will be discarded.
+
+# === BELOW IS THE TM ===
+q1 : # > r : q8
+q8 : x > r : q8
+q8 : . > r : accept
+
+q1 : 1 > x, r : q3
+q3 : 0, 1 > r : q3
+q3 : # > r : q5
+q5 : x > r : q5
+q5 : 1 > x, l : q6
+
+q1 : 0 > x, r : q2
+q2 : 0, 1 > r : q2
+q2 : # > r : q4
+q4 : x > r : q4
+q4 : 0 > x, l : q6
+
+q6 : x > l : q6
+q6 : # > l : q7
+q7 : 0, 1 > l : q7
+q7 : x > r : q1
